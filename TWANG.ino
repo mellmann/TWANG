@@ -21,7 +21,7 @@ int16_t ax, ay, az;
 int16_t gx, gy, gz;
 
 // LED setup
-#define NUM_LEDS             475
+#define NUM_LEDS             600
 #define DATA_PIN             3
 #define CLOCK_PIN            4
 #define LED_COLOR_ORDER      BGR//GBR
@@ -102,7 +102,8 @@ void setup() {
     accelgyro.initialize();
     
     // Fast LED
-    FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, LED_COLOR_ORDER>(leds, NUM_LEDS);
+    //FastLED.addLeds<APA102, DATA_PIN, CLOCK_PIN, LED_COLOR_ORDER>(leds, NUM_LEDS);
+    FastLED.addLeds<WS2812B, DATA_PIN>(leds, NUM_LEDS);
     FastLED.setBrightness(BRIGHTNESS);
     FastLED.setDither(1);
     
